@@ -72,6 +72,9 @@ set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
 
+" zencoding config
+let g:user_emmet_mode='a' 
+
 " nerdtree config
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeWinPos ="left"
