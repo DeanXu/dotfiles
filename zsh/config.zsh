@@ -6,6 +6,7 @@ fi
 
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
+export TERM=xterm-256color
 
 fpath=($ZSH/functions $fpath)
 
@@ -14,6 +15,7 @@ autoload -U $ZSH/functions/*(:t)
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
+DISABLE_AUTO_TITLE="true"
 
 setopt NO_BG_NICE # don't nice background tasks
 setopt NO_HUP

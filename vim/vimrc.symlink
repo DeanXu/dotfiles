@@ -1,4 +1,108 @@
+:call pathogen#infect() 
 syntax on
+set nu
 
 " Wrap gitcommit file types at the appropriate length
 filetype indent plugin on
+
+set encoding=utf8
+colorscheme distinguished
+set history=700
+ 
+" With a map leader it's possible to do extra key combinations
+" like <leader>w saves the current fil
+let mapleader = ","
+let g:mapleader = ","
+
+" Toggle paste mode on and off
+map <leader>pp :setlocal paste!<cr>
+
+" Treat long lines as break lines (useful when moving around in them)
+map j gj
+map k gk
+
+" Smart way to move between windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+" move to last whitespace
+:set virtualedit=onemore
+
+" map ESC to jk
+:imap jk <ESC>
+
+" 查找忽略大小写
+:set ic
+
+" undo file
+set undofile                " Save undo's after file closes
+set undodir=$HOME/.vim/undo " where to save undo histories
+set undolevels=1000         " How many undos
+set undoreload=10000        " number of lines to save for undo
+
+" 高亮搜索词
+set hlsearch
+
+" No annoying sound on errors
+set noerrorbells
+set novisualbell
+
+" Turn backup off, since most stuff is in SVN, git et.c anyway...
+set nobackup
+set nowb
+set noswapfile
+
+" Use spaces instead of tabs
+set expandtab
+
+" Be smart when using tabs ;)
+set smarttab
+
+" 1 tab == 4 spaces
+set shiftwidth=4
+set tabstop=4
+
+" Linebreak on 500 characters
+set lbr
+set tw=500
+
+set ai "Auto indent
+set si "Smart indent
+set wrap "Wrap lines
+
+" nerdtree config
+map <C-n> :NERDTreeToggle<CR>
+let NERDTreeWinPos ="left"
+let NERDTreeShowBookmarks=1
+let NERDTreeChDirMode=2
+let NERDTreeIgnore=['\env','\.vim$', '\~$', '\.pyc$', '\.swp$', '\.egg-info$', '^dist$', '^build$']
+let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\~$']
+let NERDTreeShowBookmarks=1
+let NERDTreeHightlightCursorline=2
+let NERDTreeQuitOnOpen=1 "当用NERDTREE打开一个文件时，自动关闭NERDTREE
+
+" miniBufExpl config
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapCTabSwitchBufs = 1   
+let g:miniBufExplModSelTarget = 1  
+let g:miniBufExplMoreThanOne=0  
+nmap <right> :bn<CR>
+nmap <left> :bp<CR>
+
+" Always show the status line
+set laststatus=2
+
+" Format the status line
+set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l%h\ %w\ \ ,\ %P
+
+" Returns true if paste mode is enabled
+function! HasPaste()
+    if &paste
+        return 'PASTE MODE  '
+    en
+    return ''
+endfunction
+
