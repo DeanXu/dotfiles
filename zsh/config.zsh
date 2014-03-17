@@ -7,6 +7,7 @@ fi
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
 export TERM=xterm-256color
+export DOCKER_HOST=tcp://localhost:4243
 
 fpath=($ZSH/functions $fpath)
 
