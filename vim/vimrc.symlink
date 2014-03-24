@@ -1,4 +1,4 @@
-:call pathogen#infect() 
+:call pathogen#infect()
 syntax on
 set nu
 
@@ -8,7 +8,7 @@ filetype indent plugin on
 set encoding=utf8
 colorscheme distinguished
 set history=700
- 
+
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current fil
 let mapleader = ","
@@ -61,8 +61,8 @@ set expandtab
 set smarttab
 
 " 1 tab == 4 spaces
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=2
+set tabstop=2
 
 " Linebreak on 500 characters
 set lbr
@@ -71,6 +71,16 @@ set tw=500
 set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
+
+" delete space
+" autocmd BufWrite * execute ":%s/ *$//"
+" 保存时自动删除行尾空格
+func! DeleteTrailingWS()
+    exe "normal mz"
+    %s/\s\+$//ge
+    exe "normal `z"
+endfunc
+autocmd BufWrite * :call DeleteTrailingWS()
 
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
@@ -81,9 +91,14 @@ autocmd BufReadPost *
 " Remember info about open buffers on close
 set viminfo^=%
 
+" jsbeautify config
+map <c-f> :call JsBeautify()<cr>
+autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
 " zencoding config
-let g:user_emmet_mode='a' 
+let g:user_emmet_mode='a'
 
 " nerdtree config
 map <C-n> :NERDTreeToggle<CR>
@@ -99,9 +114,9 @@ let NERDTreeQuitOnOpen=1 "当用NERDTREE打开一个文件时，自动关闭NERD
 " miniBufExpl config
 let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1   
-let g:miniBufExplModSelTarget = 1  
-let g:miniBufExplMoreThanOne=0  
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1
+let g:miniBufExplMoreThanOne=0
 nmap <right> :bn<CR>
 nmap <left> :bp<CR>
 
