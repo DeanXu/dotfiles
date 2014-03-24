@@ -72,6 +72,9 @@ set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
 
+" visual mode 下 左移动可以到上一行
+set whichwrap+=<,>,h,l
+
 " delete space
 " autocmd BufWrite * execute ":%s/ *$//"
 " 保存时自动删除行尾空格
@@ -119,6 +122,7 @@ let g:miniBufExplModSelTarget = 1
 let g:miniBufExplMoreThanOne=0
 nmap <right> :bn<CR>
 nmap <left> :bp<CR>
+set hid
 
 " Always show the status line
 set laststatus=2
