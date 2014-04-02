@@ -1,9 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/Users/dean/.vim'
-let g:netrw_dirhist_2='/Users/dean/.dotfiles/vim'
-let g:netrw_dirhist_3='/Users/dean/Desktop/workspace/jvary/app'
-let g:netrw_dirhist_4='/Users/dean/Desktop/workspace/jvary'
-let g:netrw_dirhist_5='/Users/dean/Desktop/workspace/jvary/app'
-let g:netrw_dirhist_6='/Users/dean/Desktop/workspace/jvary/app/views'
-let g:netrw_dirhist_7='/Users/dean/Desktop/workspace/trunk/japp-diy/zhubao-webx/src/main/webapp/resources/js/src'
+let g:netrw_dirhist_cnt =0
